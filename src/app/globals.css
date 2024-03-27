@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@100..900&display=swap');
+
+.font-inter{
+  font-family: "Inter", sans-serif;
+}
+.hero-banner{
+  background-image: url(../Assests/banner-image.png) !important;
+  height: 580px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.gaming-console{
+  background-image: url(../Assests/GamingConsoleImage.png);
+}
+@media screen and (max-width:580px) {
+.hero-banner{
+  height: 200px;
+  
+}
+.gaming-console {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+}
