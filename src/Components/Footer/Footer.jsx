@@ -12,45 +12,45 @@ import pinterest from "@/Assests/Pinterest.svg"
 
 const Footer = () => {
   return (
-    <div className='bg-[#2c2c2e] p-4'>
-      <div className="flex w-[100%] lg:flex-row flex-col gap-[10px] lg:gap-[0px]">
-        <div className="lg:w-[30%] w-[100%]">
+    <div className='p-4' style={{backgroundColor:"#2c2c2e" ,padding:"1rem"}}>
+      <div className="footer-container">
+        <div className="footer-logo">
           <Image src={FooterLogo}/>
         </div>
-        <div className="w-[20%]">
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>About Us</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Features</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Experience</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Vedio</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Trucks</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Pricing</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Ads Settings</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Customizable</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Coverage</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Map</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Order Process</li>
+        <div className="footer-links">
+          <li className='footer-navigation'>About Us</li>
+          <li className='footer-navigation'>Features</li>
+          <li className='footer-navigation'>Experience</li>
+          <li className='footer-navigation'>Vedio</li>
+          <li className='footer-navigation'>Trucks</li>
+          <li className='footer-navigation'>Pricing</li>
+          <li className='footer-navigation'>Ads Settings</li>
+          <li className='footer-navigation'>Customizable</li>
+          <li className='footer-navigation'>Coverage</li>
+          <li className='footer-navigation'>Map</li>
+          <li className='footer-navigation'>Order Process</li>
         </div>
-        <div className="w-[20%]">
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>Blog</li>
-          <li className='list-none font-inter font-[400] text-[12px] cursor-pointer leading-[25px] tracking-[0.05px] text-[#8b8b90]'>SiteMap</li>
+        <div className="footer-links">
+          <li className='footer-navigation'>Blog</li>
+          <li className='footer-navigation'>SiteMap</li>
         </div>
-        <div className="lg:w-[20%] w-[80%]">
-          <div className="font-inter font-[400] text-[12px] leading-[18px] tracking-[0.05px] text-[#535357]">New York</div>
-          <div className="font-inter font-[400] text-[12px] leading-[18px] tracking-[0.05px] text-[#535357]">418 Broadway</div>
-          <div className="font-inter font-[400] text-[12px] leading-[18px] tracking-[0.05px] text-[#535357]">STE 4725 Albany, NY 12207</div>
-          <div className="font-inter font-[400] text-[12px] leading-[25px] tracking-[0.05px] text-[#535357] my-[10px]">(718) 635–1316</div>
-          <div className="font-inter font-[400] text-[12px] leading-[25px] tracking-[0.05px] text-[#535357]">victoria@heymobibo.com</div>
-          <div className="font-inter font-[400] text-[12px] leading-[25px] tracking-[0.05px] text-[#535357]"><button className='bg-[#39393d] border-[1px] border-[#8b8b90] text-[#8b8b90] text-[16px] px-4 py-2 rounded-lg mt-[10px]'>Call</button></div>
+        <div className="Address-main">
+          <div className="footer-address">New York</div>
+          <div className="footer-address">418 Broadway</div>
+          <div className="footer-address">STE 4725 Albany, NY 12207</div>
+          <div className="footer-address" style={{lineHeight:"25px", margin:"10px 0px"}}>(718) 635–1316</div>
+          <div className="footer-address" style={{lineHeight:"25px"}}>victoria@heymobibo.com</div>
+          <div className="footer-address" style={{lineHeight:"25px"}}><button className='footer-callbtn'>Call</button></div>
         </div>
-        <div className="lg:w-[20%] w-[80%] my-[30px] lg:my-[0px]">
-          <div className="font-inter font-[400] text-[12px] leading-[18px] tracking-[0.05px] text-[#ffff]">Everything you need to know 
-before ordering advertising</div>
-<div className="font-inter font-[400] text-[12px] leading-[25px] tracking-[0.05px] text-[#535357]"><button className='bg-[#ffff] border-[1px] border-[#8b8b90] text-[#39393d] text-[16px] px-4 py-2 rounded-lg mt-[10px]'>Ads blog</button></div>
+        <div className="know-sec">
+          <div className="needtoknow">Everything you need to know 
+             before ordering advertising</div>
+           <div className="footer-address"><button className='adsBlog-btn'>Ads blog</button></div>
 
         </div>
       </div>
-      <div className="flex mt-[30px]">
-        <div className="font-inter font-[400] text-[12px] leading-[18px] tracking-[0.05px] text-[#535357] cursor-pointer w-[64%]">Privacy Policy <span className='ml-[20px]'>Terms of Service</span></div>
+      <div className="copyright-sec">
+        <div className="footer-navigation" style={{width:"64%"}}>Privacy Policy <span className='ml-[20px]'>Terms of Service</span></div>
         <div className="flex gap-[15px]">
           <Image src={linkedin} className="cursor-pointer"/>
           <Image src={facebook} className="cursor-pointer"/>
