@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <div>
-     <div className="flex justify-between items-center px-4 py-1">
+     <div className="flex justify-between items-center navbar">
         <div className="flex justify-between items-center gap-[20px]">
           <div className="">
             <Image

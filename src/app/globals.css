@@ -137,6 +137,10 @@
 .menu-toggle{
   display: none;
 }
+
+.navbar{
+  padding: 5px 1rem;
+}
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
