@@ -6,6 +6,11 @@ import Image  from "next/image";
 import ledTruck from "@/Assests/Led-Truck.png"
 import brightIcon from "@/Assests/bright-icon.svg"
 import gameIcon from "@/Assests/gamecontroller-icon.svg"
+import CompanyCard from '../Components/CompanyCard/companyCard';
+import companyImage from "@/Assests/companyImage.png"
+import Calendar from 'react-calendar';
+import dreamTruck from "@/Assests/dream-truck.png"
+import truckArch from "@/Assests/truck-archi.png"
 
 const page = () => {
   return (
@@ -98,6 +103,139 @@ a game console and play directly
 on our LED truck</div>
         </div>
       </div>
+      <div className="p-4 flex w-[100%]">
+        <div className="w-[70%]">
+        <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] lg:w-[10%] w-[27%]">We work with</div>
+        <div className="font-inter lg:text-[100px] text-[50px] leading-[40px] lg:leading-[96px] tracking-[0px] lg:tracking-[-9px] font-[500] mt-[20px] mb-[50px] w-[40%]">different companies</div>
+        <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px]">Have done advertising campaigns for industries such as:</div>
+         <div className="my-[20px]">
+          <ul>
+            <li className="font-inter font-[500] text-[20px] leading-[24px] tracking-[-0.55px]">Cannabis</li>
+            <li className="font-inter font-[500] text-[20px] leading-[24px] tracking-[-0.55px]">Crypto & NFT</li>
+            <li className="font-inter font-[500] text-[20px] leading-[24px] tracking-[-0.55px]">Political</li>
+            <li className="font-inter font-[500] text-[20px] leading-[24px] tracking-[-0.55px]">Sports</li>
+          </ul>
+         </div>
+         <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px]">and many others</div>
+        </div>
+        <div className="w-[30%] flex flex-col justify-between">
+          <div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Since</div>
+            <div className="font-inter font-[500] text-[28px] leading-[32px] tracking-[-0.8px]">2004</div>
+          </div>
+          <div>
+          <div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Orders executed</div>
+            <div className="font-inter font-[500] lg:text-[28px] text-[20px] leading-[32px] tracking-[-0.8px]">1,450+</div>
+          </div>
+          <div className="mt-[20px]">
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Reorders</div>
+            <div className="font-inter font-[500] lg:text-[28px] text-[20px] leading-[32px] tracking-[-0.8px]">350+</div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex lg:flex-row flex-col flex-wrap gap-[10px] w-[100%] p-4 m-auto">
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+        <div className="lg:w-[32.33%] w-[100%] m-auto">
+          <CompanyCard companyName="Company name" image={{companyImage}}/>
+        </div>
+      </div>
+      <div className="bg-[#e4e4e4] mt-[10px] ">
+        <div className="font-inter font-[500] lg:text-[44px] text-[25px] leading-[44px] tracking-[-2.65px] p-4">$1750</div>
+        <div className="bg-[#fff] lg:w-[20%] w-[80%] m-auto rounded-lg ">
+          <div className="font-inter font-[500] text-[18px] leading-[28px] tracking-[-0.55px] p-3">Calculate the cost of rent</div>
+        <Calendar className="text-center p-3"    formatShortWeekday={(locale, date) => ""}/>
+         <div className="flex justify-between bg-[#f9ff8a] px-3 py-2">
+         <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px]">Price for 9 days</div>
+         <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px]">$173088.99</div>
+         </div>
+         <div className="flex justify-between  px-3 py-2">
+         <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px] text-[#3C3C43]">Savings</div>
+         <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px] text-[#3C3C43]">$2400.99</div>
+         </div>
+        </div>
+        <div className="lg:w-[20%] w-[80%] m-auto rounded-lg my-[10px]">
+          <button className="bg-[#80ffab] w-[100%] py-2 rounded-lg cursor-pointer">Order</button>
+        </div>
+        <div className="lg:w-[20%] w-[80%] m-auto my-[10px] py-[50px] text-center">
+          <div className="font-inter font-[400] text-[14px] leading-[20px] tracking-[-0.5px]">We also offer wholesale pricing on 30-60 day campaigns 
+which starts at</div>
+          <div className="font-inter font-[500] text-[22px] leading-[28px] tracking-[-0.55px] my-[5px]">$1250</div>
+          <div className="font-inter font-[400] text-[14px] leading-[20px] tracking-[-0.5px]">per day</div>
+        </div>
+      </div>
+      <div className="mt-[-12px] mb-[20px]">
+        <Image src={dreamTruck} alt="dreamtruck" />
+        <div className="bg-[#e4e4e4]">
+          <div className="font-inter font-[500] lg:text-[44px] text-[25px] leading-[44px] lg:tracking-[-2.65px] tracking-[0px] lg:py-[150px] py-[50px] text-center">Test your ideas</div>
+          <div className="flex lg:flex-row flex-col w-[100%] gap-[10px]">
+            <div className="lg:w-[30%] w-[90%] ml-4">
+              <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px]">
+                <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">Side</button>
+                <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">Back</button>
+              </div>
+              <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px] mt-[10px]">
+                <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">2D</button>
+                <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">3D</button>
+              </div>
+              <div className="bg-[#fff] rounded-lg p-4 mt-[10px] ">
+                <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] pb-[10px]">
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">Advertising size</div>
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">11.5x6.5’</div>
+                </div>
+                <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">Advertising size</div>
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">11.5x6.5’</div>
+                </div>
+                <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">Advertising size</div>
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">11.5x6.5’</div>
+                </div>
+                <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">Advertising size</div>
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">11.5x6.5’</div>
+                </div>
+                <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">Advertising size</div>
+                <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">11.5x6.5’</div>
+                </div>
+              </div>
+              <div className="w-[100%] mt-[10px]">
+                <button className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg">Upload</button>
+              </div>
+              <div className="w-[100%] mt-[10px]">
+                <button className="w-[100%] py-[10px] text-[#000] font-inter bg-[#80ffab] rounded-lg">Order</button>
+              </div>
+            </div>
+            <div className="lg:w-[70%] w-[100%]"><Image src={truckArch}/></div>
+          </div>
+        </div>
+      </div>
+      
       <Footer />
     </div>
   );

@@ -141,6 +141,29 @@
 .navbar{
   padding: 5px 1rem;
 }
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: gray !important;
+}
+.react-calendar__navigation{
+  margin-bottom: 15px;
+}
+.react-calendar__tile--active abbr {
+  background: #a57bff;
+  color: #ffffff;
+  border-radius: 60px;
+  padding:2px;
+}
+.react-calendar__tile{
+  font-size:12px;
+}
+.react-calendar__month-view__days{
+  gap: 6px;
+}
+
+.react-calendar__tile abbr:hover {
+  border:1px solid #a57bff; 
+  border-radius: 60px;
+}
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
