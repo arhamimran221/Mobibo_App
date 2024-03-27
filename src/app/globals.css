@@ -16,10 +16,137 @@
 .gaming-console{
   background-image: url(../Assests/GamingConsoleImage.png);
 }
+
+.tab-buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #F9FF8A;
+  border-radius: 1.75em;
+  padding: 3px;
+}
+.tab-buttons-mobile{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #F9FF8A;
+  border-radius: 1.75em;
+  padding: 3px;
+  width: 70%;
+  margin: 0px auto;
+}
+.tab-btn:hover{
+  border-radius: 1.75em;
+  background-color: #A57BFF;
+  color: #ffff;
+}
+.tab-btn button{
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  font-family: "Inter", sans-serif;
+
+}
+.tab-btn-mobile button{
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  font-family: "Inter", sans-serif;
+}
+.tab-btn-mobile button:hover{
+  border-radius: 1.75em;
+  background-color: #A57BFF;
+  color: #ffff;
+}
+.border-tabs{
+  border: 1px solid #dddfaf;
+  height: 25px;
+}
+.mobile-menu{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #ffff;
+  width: 100%;
+  top: 59px;
+  left: 0px;
+  padding: 20px 0px;
+  border-bottom: 1px solid #000;
+}
+
+.navlinks{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.navlinks-mobile{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.navlinks-mobile li{
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #3C3C43;
+}
+.navlinks li{
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #3C3C43;
+}
+.navlinks li:hover{
+  color: #000000;
+}
+.order-button{
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  background: #80FFAB;
+  border-radius: 12px;
+}
+.order-button:hover {
+   color: #80FFAB;
+   border: 1px solid #80FFAB;
+   background-color: #fff;
+   transition: all 0.5s;
+}
+.menu-toggle{
+  display: none;
+}
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
-  
+  border-radius: 1rem;
+}
+.menu-toggle{
+  display: block;
+}
+.tab-buttons,.navlinks{
+  display: none;
 }
 .gaming-console {
   background-size: contain;
