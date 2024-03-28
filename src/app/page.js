@@ -27,6 +27,8 @@ import companyImage15 from "@/Assests/companyImage15.png";
 import companyImage16 from "@/Assests/companyImage16.png";
 import companyImage17 from "@/Assests/companyImage17.png";
 import orderProcess from "@/Assests/order-process.svg"
+import AdCampain from "@/Components/AdCampain/AdCampain";
+import AllCompainRoutes from "@/Components/AllCompainRoutes/AllCompainRoutes";
 
 const page = () => {
   const [selectedRange, setSelectedRange] = useState([new Date(), new Date()]);
@@ -431,6 +433,10 @@ const page = () => {
               </div>
             </div>
           </div>
+        </div>
+        <AdCampain/>
+        <div>
+          <AllCompainRoutes/>
         </div>
         <div className="mt-[30px] bg-[#e4e4e4]">
         <div className="m-auto w-[100%] max-w-[1280px] p-4">
