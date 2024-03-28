@@ -20,9 +20,9 @@ const AllCompainRoutes = () => {
     };
 
     return (
-        <div className="m-auto w-[100%] max-w-[1280px] font-inter">
-            <div className='w-[100%] flex px-[20px] pt-[40px] pb-[20px] gap-[10px]'>
-                <div className='w-[50%]'>
+        <div className="allCompain-container">
+            <div className='routes-wrap'>
+                <div className='routes-left'>
                     <div className='flex gap-[10px]'>
                         <Image src={imageR1} style={{ width: '320px' }} />
                         <Image src={imageR2} style={{ width: '320px' }} />
@@ -32,7 +32,7 @@ const AllCompainRoutes = () => {
                         <Image src={imageR4} style={{ width: '320px' }} />
                     </div>
                 </div>
-                <div className='w-[50%] ml-[80px]'>
+                <div className='routes-right'>
                     <h3 className='text-[28px]'>All campaign routes are fully customizable</h3>
                     <div style={{ height: '600px', marginTop: '10px', width: '100%' }}>
                         <GoogleMapReact

@@ -291,9 +291,88 @@
   margin: 0 5px;
 }
 
+.adCampain-container{
+  margin: 0px auto;
+  max-width: 1280px;
+  width: 100%;
+}
+.adCampain-wrap{
+  display: flex;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+.adCampain-heading{
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  width: 32%;
+}
+.adCampain-sec{
+ width: 23%;
+ font-family: "Inter", sans-serif;
+}
+
+.main-h-adCampain{
+  margin-top: 20px;
+  font-family: "Inter", sans-serif;
+  padding-bottom: 40px;
+  padding: 0px 20px;
+  gap: 20px;
+  width: 100%;
+  display: flex;
+}
+.heading-campain{
+  font-size: 80px;
+  font-weight: 500;
+  letter-spacing: -4px;
+  line-height: 70px;
+  font-family: "Inter", sans-serif;}
+.allCompain-container{
+  margin: 0px auto;
+  font-family: "Inter", sans-serif;
+  max-width: 1280px;
+  width: 100%;
+}
+.routes-wrap{
+  width: 100%;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  gap: 10px;
+  padding: 0px 20px;
+  margin-top: 40px;
+}
+.routes-left,.routes-right{
+  width: 50%;
+}
+.routes-right{
+  margin-left: 80px;
+}
+
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
+}
+.adCampain-wrap{
+  flex-direction: column;
+}
+.adCampain-sec{
+  width: 100%;
+}
+.adCampain-heading{
+  width: 85%
+}
+.heading-campain{
+  font-size: 40px;
+}
+.routes-wrap{
+  flex-direction: column;
+}
+.routes-right{
+  margin-left: 0px;
+  width:100%;
 }
 .know-sec{
  width: 80%;

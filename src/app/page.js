@@ -27,6 +27,7 @@ import companyImage15 from "@/Assests/companyImage15.png";
 import companyImage16 from "@/Assests/companyImage16.png";
 import companyImage17 from "@/Assests/companyImage17.png";
 import orderProcess from "@/Assests/order-process.svg"
+import Routesimage from "@/Assests/Routesimage.svg"
 import AdCampain from "@/Components/AdCampain/AdCampain";
 import AllCompainRoutes from "@/Components/AllCompainRoutes/AllCompainRoutes";
 
@@ -99,6 +100,33 @@ const page = () => {
       companyImage: companyImage17,
     },
   ];
+  const RoutesTravel = [
+    {Route: "New York"},
+    {Route: "Houston"},
+    {Route: "Phoenix (Prescott)"},
+    {Route: "Orlando-Daytona Beach-Melbourne"},
+    {Route: "Charlotte"},
+    {Route: "Nashville"},
+    {Route: "San Antonio"},
+    {Route: "Greenville-Spartanburg-Asheville-Anderson"},
+    {Route: "Jacksonville"},
+    {Route: "Birmingham (Anniston and Tuscaloosa)"},
+    {Route: "Los Angeles"},
+    {Route: "Atlanta"},
+    {Route: "Tampa-St. Petersburg (Sarasota)"},
+    {Route: "Denver"},
+    {Route: "Raleigh-Durham (Fayettville)"},
+    {Route: "Salt Lake City"},
+    {Route: "Hartford & New Haven"},
+    {Route: "Cincinatti"},
+    {Route: "Grand Rapids-Kalamazoo-Battle Creek"},
+    {Route: "Oklahoma City"},
+    {Route: "Chicago"},
+    {Route: "Boston (Manchester)"},
+    {Route: "Seattle-Tacoma"},
+    {Route: "Miami-Fort Lauderdale"},
+    {Route: "Portland, OR"},
+  ]
   const handleDateChange = (date) => {
     // Assuming you want to select a range of dates
     // Update the selectedRange state based on user interactions
@@ -437,6 +465,19 @@ const page = () => {
         <AdCampain/>
         <div>
           <AllCompainRoutes/>
+        </div>
+        <div className= "flex items-center my-[60px] w-[100%] p-4 lg:flex-row flex-col gap-[20px] lg:gap-[0px]">
+          <div className="lg:w-[50%] w-[100%]">
+            <Image src={Routesimage}/>
+          </div>
+          <div className="lg:w-[50%] w-[100%]">
+            {RoutesTravel.map((item)=>(
+              <div className="flex  w-[100%]">
+                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">{item.Route}</li>
+                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">{item.Route}</li>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="mt-[30px] bg-[#e4e4e4]">
         <div className="m-auto w-[100%] max-w-[1280px] p-4">
