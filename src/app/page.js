@@ -434,26 +434,54 @@ const page = () => {
         </div>
         <div className="mt-[30px] bg-[#e4e4e4]">
         <div className="m-auto w-[100%] max-w-[1280px] p-4">
-          <div className="font-inter font-[500] text-[#fff] text-[100px] leading-[96px] tracking-[-9.65px] w-[44%]">
+          <div className="font-inter font-[500] text-[#fff] lg:text-[100px] text-[50px] lg:leading-[96px] leading-[45px] lg:tracking-[-9.65px] tracking-[0px] lg:w-[44%] w-[80%]">
           If you have not found the city you are interested in
           </div>
           <div className="mt-[100px] mb-[50px] w-[50%] m-auto flex flex-col justify-center items-center">
             <input type="text" placeholder="Offer your location" className="placeholder:text-[#e4e4e4] placeholder:text-[14px] text-[14px] font-inter placeholder:font-inter bg-[#fff] border-none px-4 py-1 focus:outline-none rounded-lg"/>
-            <div className="w-[50%] font-inter font-[400] text-center text-[#3C3C43] my-[20px] text-[14px] leading-[16px] tracking-[-0.5px]">and we will try to organize an advertising campaign for you there</div>
+            <div className="lg:w-[50%] w-[100%] font-inter font-[400] text-center text-[#3C3C43] my-[20px] text-[14px] leading-[16px] tracking-[-0.5px]">and we will try to organize an advertising campaign for you there</div>
             <div><button className="bg-[#FF80FD] rounded-lg text-[#fff] font-inter p-3 cursor-pointer hover:bg-[#e4e4e4] hover:text-[#FF80FD] hover:border-[1px] hover:border-[#FF80FD]">Offer</button></div>
           </div>
         </div>
         </div>
-        <div className="m-auto w-[100%] max-w-[1280px] p-4">
-          <div>
+        <div className="m-auto w-[100%] max-w-[1280px] p-4 flex lg:flex-row flex-col w-[100%] my-[50px] gap-[30px] lg:gap-[0px]">
+          <div className="lg:w-[33.33%] w-[100%]">
             <Image src={orderProcess}/>
           </div>
-          <div>
-            <div>1. Application for advertising placement</div>
-            <div><p>2. Coordinating all points with our advertising strategist</p> <span>Who will contact you.</span></div>
-            <div>3.Payment</div>
+          <div className="lg:w-[33.33%] w-[100%]">
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">1. &nbsp;Application for advertising placement</div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[200px]"><p >2. &nbsp;Coordinating all points with our advertising strategist</p> <span className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Who will contact you.</span></div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">3. &nbsp;Payment</div>
           </div>
-          <div></div>
+          <div className="lg:w-[33.33%] w-[100%]">
+            <form>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Name</label>
+                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Last Name</label>
+                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Email</label>
+                <input type="Email" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Phone</label>
+                <input type="number" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div >
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Company</label>
+                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Driver Notes</label>
+                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+              </div>
+              <button type="submit" className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg cursor-pointer">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
       <Footer />
