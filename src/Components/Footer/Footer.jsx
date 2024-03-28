@@ -13,6 +13,7 @@ import pinterest from "@/Assests/Pinterest.svg"
 const Footer = () => {
   return (
     <div className='p-4' style={{backgroundColor:"#2c2c2e" ,padding:"1rem"}}>
+      <div className='footer-wrap'>
       <div className="footer-container">
         <div className="footer-logo">
           <Image src={FooterLogo}/>
@@ -50,13 +51,14 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright-sec">
-        <div className="footer-navigation" style={{width:"64%"}}>Privacy Policy <span className='ml-[20px]'>Terms of Service</span></div>
+        <div className="" style={{width:"64%" ,display: 'flex'}}><p className="footer-navigation">Privacy Policy</p><span className='ml-[20px] footer-navigation'>Terms of Service</span></div>
         <div className="flex gap-[15px]">
-          <Image src={linkedin} className="cursor-pointer"/>
-          <Image src={facebook} className="cursor-pointer"/>
-          <Image src={Instagram} className="cursor-pointer"/>
-          <Image src={pinterest} className="cursor-pointer"/>
+          <Image src={linkedin} className="cursor-pointer social-icon"/>
+          <Image src={facebook} className="cursor-pointer social-icon"/>
+          <Image src={Instagram} className="cursor-pointer social-icon"/>
+          <Image src={pinterest} className="cursor-pointer social-icon"/>
         </div>
+      </div>
       </div>
     </div>
   )
