@@ -302,6 +302,7 @@
   padding-top: 40px;
   padding-bottom: 20px;
   gap: 10px;
+
 }
 .adCampain-heading{
   font-family: "Inter", sans-serif;
@@ -398,5 +399,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
+}
+.adCampain-wrap{
+  padding: 1rem;
+}
+.heading-campain{
+  line-height: normal;
 }
 }

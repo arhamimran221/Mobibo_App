@@ -30,6 +30,8 @@ import orderProcess from "@/Assests/order-process.svg"
 import Routesimage from "@/Assests/Routesimage.svg"
 import AdCampain from "@/Components/AdCampain/AdCampain";
 import AllCompainRoutes from "@/Components/AllCompainRoutes/AllCompainRoutes";
+import responsiveTruck from "@/Assests/responsiveTruck.png"
+
 
 const page = () => {
   const [selectedRange, setSelectedRange] = useState([new Date(), new Date()]);
@@ -455,8 +457,11 @@ const page = () => {
                     </button>
                   </div>
                 </div>
-                <div className="lg:w-[70%] w-[100%]">
+                <div className="lg:w-[70%] w-[100%] lg:block hidden">
                   <Image src={truckArch} />
+                </div>
+                <div className="lg:w-[70%] w-[100%] lg:hidden block">
+                  <Image src={responsiveTruck} />
                 </div>
               </div>
             </div>
@@ -504,27 +509,27 @@ const page = () => {
             <form>
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Name</label>
-                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="text" placeholder="Enter Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Last Name</label>
-                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="text" placeholder="Enter Last Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Email</label>
-                <input type="Email" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="Email" placeholder="Enter Email" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Phone</label>
-                <input type="number" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="number" placeholder="Enter Phone Number" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div >
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Company</label>
-                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="text" placeholder="Your Company Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
                 <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Driver Notes</label>
-                <input type="text" placeholder="placeHolder" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <input type="text" placeholder="Enter Driver Notes" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
               </div>
               <button type="submit" className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg cursor-pointer">Submit</button>
             </form>
