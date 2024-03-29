@@ -5,19 +5,9 @@ import imageR1 from "@/Assests/ImageR1.svg";
 import imageR2 from "@/Assests/ImageR2.svg";
 import imageR3 from "@/Assests/ImageR3.svg";
 import imageR4 from "@/Assests/ImageR4.svg";
+import mapImage from "@/Assests/AdsSettings-2.png";
 
 const AllCompainRoutes = () => {
-    const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-    const hongKongCenter = {
-        lat: 22.3193, // Latitude of Hong Kong
-        lng: 114.1694 // Longitude of Hong Kong
-    };
-
-    const defaultProps = {
-        center: hongKongCenter,
-        zoom: 11
-    };
 
     return (
         <div className="allCompain-container">
@@ -34,19 +24,17 @@ const AllCompainRoutes = () => {
                 </div>
                 <div className='routes-right'>
                     <h3 className='text-[28px]'>All campaign routes are fully customizable</h3>
-                    <div style={{ height: '600px', marginTop: '10px', width: '100%' }}>
-                        <GoogleMapReact
-                            bootstrapURLKeys={{ key: "" }}
-                            defaultCenter={defaultProps.center}
-                            defaultZoom={defaultProps.zoom}
-                        >
-                            <AnyReactComponent
-                                lat={hongKongCenter.lat}
-                                lng={hongKongCenter.lng}
-                                text="Hong Kong"
-                            />
-                        </GoogleMapReact>
+                    <div>
+                       <p>
+                        Date <br/>
+                        Time <br/>
+                        Place <br/>
+                        Duration <br/>
+                       </p> 
                     </div>
+                    {/* <div>
+                     <Image src={mapImage} width="900px" height="700px"/>
+                    </div> */}
                 </div>
             </div>
         </div>

@@ -52,13 +52,13 @@ const Header = () => {
             <div className="tab-btn-mobile"><button className=''>Blog</button></div>
           </div>
           <div className="navlinks-mobile">
-            <li className='' value="Feature" onClick={()=>handleScroll("Feature")}>Features</li>
-            <li className='' value="Experience" onClick={()=>handleScroll("Experience")}>Experience</li>
-            <li className=''>Pricing</li>
-            <li className=''>Trucks</li>
-            <li className=''>Ads Settings</li>
-            <li className=''>Coverage</li>
-            <li className=''>Order Process</li>
+          <li className='' value="Feature" onClick={()=>handleScroll("Feature")}>Features</li> 
+          <li className='' value="Experience" onClick={()=>handleScroll("Experience")}>Experience</li>
+          <li className='' value="Pricing" onClick={()=>handleScroll("Pricing")}>Pricing</li>
+          <li className='' value="Trucks" onClick={()=>handleScroll("Trucks")}>Trucks</li>
+          <li className='' value="AdsSettings" onClick={()=>handleScroll("AdsSettings")}>Ads Settings</li>
+          <li className='' value="Coverage" onClick={()=>handleScroll("Coverage")}>Coverage</li>
+          <li className='' value="OrderProcess" onClick={()=>handleScroll("OrderProcess")}>Order Process</li>
           </div>
             </div>
           )}

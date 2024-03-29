@@ -78,8 +78,13 @@
   left: 0px;
   padding: 20px 0px;
   border-bottom: 1px solid #000;
+  z-index: 99;
 }
 
+.routes-right{
+  background-image: url("../Assests/AdsSettings-2.png");
+  background-size: contain;
+}
 .navlinks{
   list-style: none;
   display: flex;
@@ -405,5 +410,9 @@
 }
 .heading-campain{
   line-height: normal;
+}
+.routes-right{
+  background-size: contain;
+  height: 600px;
 }
 }
