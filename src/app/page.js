@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
-import React ,{useState} from "react";
+import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import ledTruck from "@/Assests/Led-Truck.png";
 import brightIcon from "@/Assests/bright-icon.svg";
@@ -26,15 +26,16 @@ import companyImage14 from "@/Assests/companyImage14.png";
 import companyImage15 from "@/Assests/companyImage15.png";
 import companyImage16 from "@/Assests/companyImage16.png";
 import companyImage17 from "@/Assests/companyImage17.png";
-import orderProcess from "@/Assests/order-process.svg"
-import Routesimage from "@/Assests/Routesimage.svg"
+import orderProcess from "@/Assests/order-process.svg";
+import Routesimage from "@/Assests/Routesimage.svg";
 import AdCampain from "@/Components/AdCampain/AdCampain";
 import AllCompainRoutes from "@/Components/AllCompainRoutes/AllCompainRoutes";
-import responsiveTruck from "@/Assests/responsiveTruck.png"
-
+import responsiveTruck from "@/Assests/responsiveTruck.png";
 
 const page = () => {
   const [selectedRange, setSelectedRange] = useState([new Date(), new Date()]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageList, setImageList] = useState([]);
 
   const companyData = [
     {
@@ -103,45 +104,64 @@ const page = () => {
     },
   ];
   const RoutesTravel = [
-    {Route: "New York"},
-    {Route: "Houston"},
-    {Route: "Phoenix (Prescott)"},
-    {Route: "Orlando-Daytona Beach-Melbourne"},
-    {Route: "Charlotte"},
-    {Route: "Nashville"},
-    {Route: "San Antonio"},
-    {Route: "Greenville-Spartanburg-Asheville-Anderson"},
-    {Route: "Jacksonville"},
-    {Route: "Birmingham (Anniston and Tuscaloosa)"},
-    {Route: "Los Angeles"},
-    {Route: "Atlanta"},
-    {Route: "Tampa-St. Petersburg (Sarasota)"},
-    {Route: "Denver"},
-    {Route: "Raleigh-Durham (Fayettville)"},
-    {Route: "Salt Lake City"},
-    {Route: "Hartford & New Haven"},
-    {Route: "Cincinatti"},
-    {Route: "Grand Rapids-Kalamazoo-Battle Creek"},
-    {Route: "Oklahoma City"},
-    {Route: "Chicago"},
-    {Route: "Boston (Manchester)"},
-    {Route: "Seattle-Tacoma"},
-    {Route: "Miami-Fort Lauderdale"},
-    {Route: "Portland, OR"},
-  ]
+    { Route: "New York" },
+    { Route: "Houston" },
+    { Route: "Phoenix (Prescott)" },
+    { Route: "Orlando-Daytona Beach-Melbourne" },
+    { Route: "Charlotte" },
+    { Route: "Nashville" },
+    { Route: "San Antonio" },
+    { Route: "Greenville-Spartanburg-Asheville-Anderson" },
+    { Route: "Jacksonville" },
+    { Route: "Birmingham (Anniston and Tuscaloosa)" },
+    { Route: "Los Angeles" },
+    { Route: "Atlanta" },
+    { Route: "Tampa-St. Petersburg (Sarasota)" },
+    { Route: "Denver" },
+    { Route: "Raleigh-Durham (Fayettville)" },
+    { Route: "Salt Lake City" },
+    { Route: "Hartford & New Haven" },
+    { Route: "Cincinatti" },
+    { Route: "Grand Rapids-Kalamazoo-Battle Creek" },
+    { Route: "Oklahoma City" },
+    { Route: "Chicago" },
+    { Route: "Boston (Manchester)" },
+    { Route: "Seattle-Tacoma" },
+    { Route: "Miami-Fort Lauderdale" },
+    { Route: "Portland, OR" },
+  ];
   const handleDateChange = (date) => {
-    // Assuming you want to select a range of dates
-    // Update the selectedRange state based on user interactions
     setSelectedRange(date);
+  };
+  const handleImageUpload = (event) => {
+    const files = Array.from(event.target.files);
+    const newImages = files.map(file => ({ url: URL.createObjectURL(file), name: file.name, size: `${file.size / 1000} KB` }));
+    setImageList([...imageList, ...newImages]);
   };
 
   return (
     <>
       <div className="">
         <Header />
-        <div className="hero-banner lg:text-[100px] text-[30px] font-inter lg:leading-[96px] leading-[30px] lg:tracking-[-10px] tracking-[0px] text-[#fff] font-[700] p-4 uppercase w-[100%] max-w-[1280px] m-auto">
-          LED Truck <br />
-          Advertising
+        <div style={{ position: "relative" }}>
+          <video
+            src="/video.mp4"
+            className=""
+            autoPlay
+            muted
+            loop
+            type="video/mp4"
+            style={{ width: "100%" }}
+          ></video>
+          <div
+            className="lg:text-[100px] text-[30px] font-inter lg:leading-[96px] leading-[30px] lg:tracking-[-10px] tracking-[0px] text-[#fff] font-[700] uppercase w-[100%] max-w-[1280px] m-auto"
+            style={{ position: "absolute", top: "10px", left: "10px" }}
+          >
+            <div className="w-[100%] max-w-[1280px] m-auto">
+              LED Truck <br />
+              Advertising
+            </div>
+          </div>
         </div>
         <div className="lg:flex block justify-between items-center p-4 w-[100%] max-w-[1280px] m-auto">
           <div>
@@ -337,7 +357,6 @@ const page = () => {
                 value={selectedRange}
                 selectRange
                 formatShortWeekday={(locale, date) => ""}
-                
               />
               <div className="flex justify-between bg-[#f9ff8a] px-3 py-2">
                 <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px]">
@@ -386,7 +405,7 @@ const page = () => {
               <div className="font-inter font-[500] lg:text-[44px] text-[25px] leading-[44px] lg:tracking-[-2.65px] tracking-[0px] lg:py-[150px] py-[40px] text-center">
                 Test your ideas
               </div>
-              <div className="flex lg:flex-row flex-col w-[100%] gap-[10px] pb-[100px]">
+              <div className="flex lg:flex-row flex-col w-[100%] gap-[10px] pb-[100px] justify-between">
                 <div className="lg:w-[30%] w-[90%] ml-4">
                   <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px]">
                     <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">
@@ -404,53 +423,32 @@ const page = () => {
                       3D
                     </button>
                   </div>
-                  <div className="bg-[#fff] rounded-lg p-4 mt-[10px] ">
-                    <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] pb-[10px]">
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">
-                        Advertising size
-                      </div>
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                        11.5x6.5’
-                      </div>
-                    </div>
-                    <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">
-                        Advertising size
-                      </div>
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                        11.5x6.5’
-                      </div>
-                    </div>
-                    <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">
-                        Advertising size
-                      </div>
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                        11.5x6.5’
-                      </div>
-                    </div>
-                    <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">
-                        Advertising size
-                      </div>
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                        11.5x6.5’
-                      </div>
-                    </div>
-                    <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f]">
-                        Advertising size
-                      </div>
-                      <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                        11.5x6.5’
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-[100%] mt-[10px]">
-                    <button className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg">
-                      Upload
-                    </button>
-                  </div>
+                  <div className="bg-[#fff] rounded-lg p-4 mt-[10px]">
+        {imageList.length === 0 ? ("Uploaded Images show here!") :(imageList.map((image, index) => (
+          <div key={index} className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f] cursor-pointer" onClick={() => setSelectedImage(image.url)}>
+              {image.name}
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
+              {image.size}
+            </div>
+          </div>
+        )))}
+      </div>
+      <div className="w-[100%] mt-[10px] flex justify-center">
+  <input
+    type="file"
+    id="uploadfile"
+    accept=".jpg, .jpeg, .png, .pdf"
+    onChange={handleImageUpload}
+    multiple
+    style={{ display: 'none' }} // Hide the default file input
+  />
+  <label htmlFor="uploadfile" className="w-[100%] py-[10px] px-4 text-[#fff] text-center font-inter bg-[#ff80fd] rounded-lg cursor-pointer">
+    Upload
+  </label>
+</div>
+
                   <div className="w-[100%] mt-[10px]">
                     <button className="w-[100%] py-[10px] text-[#000] font-inter bg-[#80ffab] rounded-lg">
                       Order
@@ -458,83 +456,175 @@ const page = () => {
                   </div>
                 </div>
                 <div className="lg:w-[70%] w-[100%] lg:block hidden">
-                  <Image src={truckArch} />
+                {selectedImage ? <Image src={selectedImage} alt="Selected" width={800} height={800}/> : <Image src={truckArch} width={800} height={800}/>}
                 </div>
                 <div className="lg:w-[70%] w-[100%] lg:hidden block">
-                  <Image src={responsiveTruck} />
+                {selectedImage ? <Image src={selectedImage} alt="Selected" width={500} height={500}/> : <Image src={responsiveTruck} width={500} height={500}/>}
+
                 </div>
               </div>
+              <div className="flex w-[30%] justify-center gap-[30px] m-auto pb-[80px]">
+                <div >
+                <p className="font-inter font-[400] text-[14px] leading-[16px] tracking-[-0.5px] text-[#7f7f83]">All of our trucks are</p>
+                  </div>
+                  <div>
+                  <p className="font-inter font-[500] text-[15px] leading-[16px] tracking-[-0.5px] text-[#000]">black</p>
+                  <p className="font-inter font-[400] text-[14px] leading-[16px] tracking-[-0.5px] text-[#7f7f83]">and</p>
+                  <p className="font-inter font-[400] text-[14px] leading-[16px] tracking-[-0.5px] text-[#7f7f83]">unbranded </p>
+                  <p className="font-inter font-[400] text-[14px] leading-[16px] tracking-[-0.5px] text-[#7f7f83]">to give you <br/>maximum transparency</p>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
-        <AdCampain/>
+        <AdCampain />
         <div>
-          <AllCompainRoutes/>
+          <AllCompainRoutes />
         </div>
-        <div className= "flex items-center my-[60px] w-[100%] p-4 lg:flex-row flex-col gap-[20px] lg:gap-[0px]">
+        <div className="flex items-center my-[60px] w-[100%] p-4 lg:flex-row flex-col gap-[20px] lg:gap-[0px] m-auto w-[100%] max-w-[1280px] p-4">
           <div className="lg:w-[50%] w-[100%]">
-            <Image src={Routesimage}/>
+            <Image src={Routesimage} />
           </div>
-          <div className="lg:w-[50%] w-[100%]">
-            {RoutesTravel.map((item)=>(
+          <div className="lg:w-[50%] w-[100%] ">
+            {RoutesTravel.map((item) => (
               <div className="flex  w-[100%]">
-                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">{item.Route}</li>
-                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">{item.Route}</li>
+                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">
+                  {item.Route}
+                </li>
+                <li className="font-inter font-[400] w-[50%] text-[12px] leading-[16px] tracking-[0.05px] text-[#adadb0] ">
+                  {item.Route}
+                </li>
               </div>
             ))}
           </div>
         </div>
         <div className="mt-[30px] bg-[#e4e4e4]">
-        <div className="m-auto w-[100%] max-w-[1280px] p-4">
-          <div className="font-inter font-[500] text-[#fff] lg:text-[100px] text-[50px] lg:leading-[96px] leading-[45px] lg:tracking-[-9.65px] tracking-[0px] lg:w-[44%] w-[80%]">
-          If you have not found the city you are interested in
+          <div className="m-auto w-[100%] max-w-[1280px] p-4">
+            <div className="font-inter font-[500] text-[#fff] lg:text-[100px] text-[50px] lg:leading-[96px] leading-[45px] lg:tracking-[-9.65px] tracking-[0px] lg:w-[44%] w-[80%]">
+              If you have not found the city you are interested in
+            </div>
+            <div className="mt-[100px] mb-[50px] w-[50%] m-auto flex flex-col justify-center items-center">
+              <input
+                type="text"
+                placeholder="Offer your location"
+                className="placeholder:text-[#e4e4e4] placeholder:text-[14px] text-[14px] font-inter placeholder:font-inter bg-[#fff] border-none px-4 py-1 focus:outline-none rounded-lg"
+              />
+              <div className="lg:w-[50%] w-[100%] font-inter font-[400] text-center text-[#3C3C43] my-[20px] text-[14px] leading-[16px] tracking-[-0.5px]">
+                and we will try to organize an advertising campaign for you
+                there
+              </div>
+              <div>
+                <button className="bg-[#FF80FD] rounded-lg text-[#fff] font-inter p-3 cursor-pointer hover:bg-[#e4e4e4] hover:text-[#FF80FD] hover:border-[1px] hover:border-[#FF80FD]">
+                  Offer
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="mt-[100px] mb-[50px] w-[50%] m-auto flex flex-col justify-center items-center">
-            <input type="text" placeholder="Offer your location" className="placeholder:text-[#e4e4e4] placeholder:text-[14px] text-[14px] font-inter placeholder:font-inter bg-[#fff] border-none px-4 py-1 focus:outline-none rounded-lg"/>
-            <div className="lg:w-[50%] w-[100%] font-inter font-[400] text-center text-[#3C3C43] my-[20px] text-[14px] leading-[16px] tracking-[-0.5px]">and we will try to organize an advertising campaign for you there</div>
-            <div><button className="bg-[#FF80FD] rounded-lg text-[#fff] font-inter p-3 cursor-pointer hover:bg-[#e4e4e4] hover:text-[#FF80FD] hover:border-[1px] hover:border-[#FF80FD]">Offer</button></div>
-          </div>
-        </div>
         </div>
         <div className="m-auto w-[100%] max-w-[1280px] p-4 flex lg:flex-row flex-col w-[100%] my-[50px] gap-[30px] lg:gap-[0px]">
           <div className="lg:w-[33.33%] w-[100%]">
-            <Image src={orderProcess}/>
+            <Image src={orderProcess} />
           </div>
           <div className="lg:w-[33.33%] w-[100%]">
-            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">1. &nbsp;Application for advertising placement</div>
-            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[200px]"><p >2. &nbsp;Coordinating all points with our advertising strategist</p> <span className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Who will contact you.</span></div>
-            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">3. &nbsp;Payment</div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              1. &nbsp;Application for advertising placement
+              <div>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Specify the city</p>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Specify the dates</p>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Attach your advertising materials</p>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Provide personal information</p>
+                <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px] my-[10px] flex items-center gap-[5px]"><input type="checkbox" className="cursor-pointer"/> Can be Skipped for now</div>
+              </div>
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[100px]">
+              <p>
+                2. &nbsp;Coordinating all points with our advertising strategist
+              </p>{" "}
+              <span className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">
+                Who will contact you.
+              </span>
+              <div>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Creatives</p>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Route optimization</p>
+                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Measurement</p>
+              </div>
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              3. &nbsp;Payment
+            </div>
           </div>
           <div className="lg:w-[33.33%] w-[100%]">
             <form>
               <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Name</label>
-                <input type="text" placeholder="Enter Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Name"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Last Name</label>
-                <input type="text" placeholder="Enter Last Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Last Name"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Email</label>
-                <input type="Email" placeholder="Enter Email" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Email
+                </label>
+                <input
+                  type="Email"
+                  placeholder="Enter Email"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Phone</label>
-                <input type="number" placeholder="Enter Phone Number" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
-              </div >
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Company</label>
-                <input type="text" placeholder="Your Company Name" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Phone
+                </label>
+                <input
+                  type="number"
+                  placeholder="Enter Phone Number"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
               </div>
               <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">Driver Notes</label>
-                <input type="text" placeholder="Enter Driver Notes" className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"/>
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Company Name"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
               </div>
-              <button type="submit" className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg cursor-pointer">Submit</button>
+              <div className="flex flex-col gap-[10px] mb-[10px]">
+                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
+                  Driver Notes
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Driver Notes"
+                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg cursor-pointer"
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>
+        <div className="m-auto w-[100%] max-w-[1280px] p-4 flex justify-center"><button className="bg-[#80FFAB] px-4 py-2 cursor-pointer rounded-lg font-inter font-[500] hover:border-[1px] hover:bg-[#fff] hover:border-[#80FFAB] hover:text-[#80FFAB]">Run Ads</button></div>
       </div>
       <Footer />
     </>
