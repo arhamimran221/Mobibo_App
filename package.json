@@ -15,7 +15,8 @@
     "react": "^18",
     "react-calendar": "^4.8.0",
     "react-dom": "^18",
-    "react-player": "^2.15.1"
+    "react-player": "^2.15.1",
+    "sweetalert2": "^11.10.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
