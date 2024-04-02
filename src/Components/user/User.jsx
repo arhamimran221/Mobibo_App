@@ -122,11 +122,12 @@ const User = ({onNextClick}) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+  
   return (
     <>
       <div>
         <div className=" pb-12">
-          <div className="flex items-center justify-center my-[13.3%]">
+          <div className="flex items-center justify-center my-[14.7%]">
             <div className="w-[40%]">
               <div className="mt-2">
                 <input

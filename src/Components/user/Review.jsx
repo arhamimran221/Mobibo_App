@@ -137,7 +137,7 @@ const Review = ({onPreviousClick}) => {
           allowOutsideClick: false,
           }).then((result) => {
           if (result.isConfirmed) {
-            router.push('/');
+            router.push('/thankyou');
           }
         });
       }  
