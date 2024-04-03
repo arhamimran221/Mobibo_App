@@ -35,7 +35,7 @@ const Lock = ({ onNextClick, onPreviousClick }) => {
   return (
     <>
     <div className="text-center">Upload your creatives</div>
-      <div className="bg-[#e4e4e4] my-[40px]">
+      <div className="bg-[#e4e4e4] lg:my-[40px] my-[20px]">
         <div className=" w-[100%] max-w-[1280px] m-auto">
           <div className="flex lg:flex-row flex-col w-[100%] gap-[10px] pb-[100px] justify-between">
             <div className="lg:w-[30%] w-[90%] ml-4">
@@ -123,7 +123,7 @@ const Lock = ({ onNextClick, onPreviousClick }) => {
       </div>
       <div className="flex justify-center p-4  w-full text-center next-btn  mt-5 m-auto">
         <div>
-         <p className="w-[53%] text-center m-auto font-inter tex-[24px]">You can skip this step and hand over the creatives after payment.
+         <p className="lg:w-[53%] w-[80%] text-center m-auto font-inter tex-[24px]">You can skip this step and hand over the creatives after payment.
 To send us the creatives now - upload them for each side of the truck.</p>
 <div className=" ">
         <button className="rounded-md bg-[#f7f7f7] px-3 py-2 text-sm font-semibold text-[#d5d5d7] shadow-sm  ml-auto mt-[10px]">

@@ -96,11 +96,41 @@ const Header = () => {
           <button onClick={() => setIsOpen(!isOpen)} className="menu-toggle">
             {isOpen? <CloseOutlined/> : <MenuOutlined/>}
           </button>
+          <div className="">
+          <Modal 
+  open={isModalOpen} 
+  onOk={handleOk} 
+  onCancel={handleCancel} 
+  width='100%' 
+  footer={null}
+  style={{
+    maxWidth: "1280px", 
+    backgroundColor: "#e4e4e4",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingBottom: "0px",
+    margin: "0px",
+    '@media (min-width: 600px)': {
+      width: '80%', // or whatever width you want above 600px viewport width
+    },
+    '@media (min-width: 900px)': {
+      width: '50%', // or whatever width you want above 900px viewport width
+    },
+  }}
+>
+  <Invoice/>
+</Modal>
+
+         </div>
+         {/* <div className="md:block hidden modal-mobile">
           <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} width={1290} footer={null}
-          style={{maxWidth:"1280px",width:'100%', backgroundColor:"#e4e4e4",top:0,left:0,right:0,bottom:0 ,paddingBottom:"0px" ,margin:"0px"}}
+          style={{width:'100%', backgroundColor:"#e4e4e4",top:0,left:0,right:0,bottom:0 ,paddingBottom:"0px" ,margin:"0px"}}
           >
          <Invoice/>
          </Modal>
+         </div> */}
 
         </div>
      </div>      
