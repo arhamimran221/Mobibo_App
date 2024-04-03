@@ -29,6 +29,10 @@ const page = () => {
       <div>
       <Swiper
         spaceBetween={0}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         pagination={{ clickable: true }}
         navigation={false}
