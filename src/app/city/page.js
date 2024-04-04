@@ -27,7 +27,7 @@ import companyImage15 from "@/Assests/companyImage15.png";
 import companyImage16 from "@/Assests/companyImage16.png";
 import companyImage17 from "@/Assests/companyImage17.png";
 import orderProcess from "@/Assests/order-process.svg";
-import Routesimage from "@/Assests/Routesimage.svg";
+import populationicon from "@/Assests/population-icon.svg";
 import AdCampain from "@/Components/AdCampain/AdCampain";
 import AllCompainRoutes from "@/Components/AllCompainRoutes/AllCompainRoutes";
 import responsiveTruck from "@/Assests/responsiveTruck.png";
@@ -37,6 +37,7 @@ import { orderJson } from "@/app/api/utils/json.mjs"
 import dotenv from "dotenv";
 import Invoice from "@/Components/user/UserMain.jsx";
 import { Modal } from "antd";
+import Demography from "./Demography";
 
 dotenv.config()
 
@@ -312,7 +313,34 @@ in Boston <br />
             </div>
           </div>
         </div>
-      
+       <div className="p-4 bg-[#f5f5f5] py-[60px] mt-[-10px]">
+        <div className="flex w-[100%] max-w-[1280px] m-auto flex-col gap-[50px]">
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Household Income"/>
+        </div>
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Age distribution"/>
+        </div>
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Employment by industry sector"/>
+        </div>
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Educational attainment"/>
+        </div>
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Household composition"/>
+        </div>
+        <div className="lg:w-[70%] w-[100%] px-4 lg:px-[0px] m-auto">
+        <Demography heading="Ethnicity"/>
+        </div>
+        </div>
+        <div className="my-[40px] mt-[100px]">Boston Population</div>
+        <div className="w-full h-full flex justify-center items-center gap-[5px] flex-col my-[60px]">
+          <div><Image src={populationicon}/></div>
+          <div className="font-inter font-[500] text-[44px] leading-[44px] tracking-[-2.65px]">650,706</div>
+          <div className="font-inter font-[400] text-[20px] leading-[24px] tracking-[-0.55px]">people</div>
+        </div>
+       </div>
         <div className="p-4 flex w-[100%] w-[100%] max-w-[1280px] m-auto">
           <div className="w-[70%]">
             <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] lg:w-[10%] w-[27%]">
@@ -433,6 +461,7 @@ in Boston <br />
               footer={null}
               style={{
                 maxWidth: "1280px",
+                height: '100vh',
                 backgroundColor: "#e4e4e4",
                 top: 0,
                 left: 0,

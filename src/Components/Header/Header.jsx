@@ -174,7 +174,7 @@ const Header = () => {
                   Blogs
                 </Link>
           </div>
-          <div className="navlinks">
+          {currentRoute === "/" ?<div className="navlinks">
             <li
               className=""
               value="Feature"
@@ -224,7 +224,7 @@ const Header = () => {
             >
               Order Process
             </li>
-          </div>
+          </div> : '' }
         </div>
         <div className="flex gap-[20px]">
           <button className=" order-button" onClick={showModal}>

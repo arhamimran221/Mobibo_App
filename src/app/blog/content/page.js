@@ -21,19 +21,19 @@ import { useRouter } from 'next/navigation'
 
 const page =({searchParams})=> {
   const router = useRouter();
-  // const { heading, image, description } = router.query;
-  // const decodedHeading = decodeURIComponent(heading);
-  // const decodedImage = decodeURIComponent(image);
-  // const decodedDescription = decodeURIComponent(description);
  console.log("searchParams",searchParams)
+  
+ const heading = searchParams.heading;
+ const Description = searchParams.description;
+
       return (
         <div className="max-w-[1280px] w-[100%] m-auto">
          <div className='text-[#FF80FD] font-inter cursor-pointer px-4 flex gap-[10px] items-center'>
           <LeftOutlined/> Blog
          </div>
          <div className="my-[40px] ">
-          <h2 className="font-[500] lg:text-[28px] text-[18px] lg:leading-[32px] tracking-[-0.8px] font-inter lg:w-[60%] m-auto w-[100%] lg:px-[0px] px-4">What is Lift Analysis and How is it Calculated?</h2>
-          <p className="font-inter font-[400] text-[12px] leading-[16px] text-[#b6b6b9] lg:w-[60%] m-auto w-[100%] lg:px-[0px] px-4">Publication time</p>
+          <h2 className="font-[500] lg:text-[28px] text-[18px] lg:leading-[32px] tracking-[-0.8px] font-inter lg:w-[60%] m-auto w-[100%] lg:px-[0px] px-4">{heading}</h2>
+          <p className="font-inter font-[400] text-[12px] leading-[16px] text-[#b6b6b9] lg:w-[60%] m-auto w-[100%] lg:px-[0px] px-4">{Description}</p>
           <div>
           <Swiper
             spaceBetween={0}
@@ -50,7 +50,7 @@ const page =({searchParams})=> {
           >
             <SwiperSlide>
               <div className="flex  justify-between w-[100%]">
-                <Image src={companyImage1}/>
+              <Image src={companyImage1}/>
               </div>
             </SwiperSlide>
             <SwiperSlide>
