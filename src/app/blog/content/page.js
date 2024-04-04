@@ -16,14 +16,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRouter } from 'next/navigation'
 
 
 const page =()=> {
-    const router = useRouter();
-    const { e } = router.query;
-
- console.log(e)
 
       return (
         <div className="max-w-[1280px] w-[100%] m-auto">

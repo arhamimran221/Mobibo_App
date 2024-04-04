@@ -8,9 +8,21 @@ import { useRouter } from 'next/navigation';
 
 const page = () => {
   const router = useRouter();
-   const handleDetails = (e) => {
-    router.push(`/blog/content/${e}`);
-   }
+//   const handleDetails = (e) => {
+//     const stringifiedE = JSON.stringify(e);
+//     router.push(`/blog/content/${encodeURIComponent(stringifiedE)}`);
+// }
+function handleDetails(item) {
+  // Use encodeURIComponent to ensure special characters in the URL are properly encoded
+  const imageSrc = encodeURIComponent(item.companyImage.src);
+  const heading = encodeURIComponent(item.heading);
+  const description = encodeURIComponent(item.description);
+
+  return `/blog/content?heading=${heading}&image=${imageSrc}&description=${description}`;
+}
+
+
+
   return (
     <div className=" bg-[#e4e4e4]  border-t-[1px]">
       <div className="bg-[#fff] px-4 py-2 flex gap-[10px] flex-wrap">
@@ -49,20 +61,15 @@ const page = () => {
         {companyData.map((item, index) => (
           <div
             className="lg:w-[24%] w-[100%] m-auto cursor-pointer"
-            onClick={() =>handleDetails(item)}
           >
-            {/* <Link
-            href={{
-              pathname: "/blog/content", 
-              query: item 
-            }}> */}
+            <Link href={handleDetails(item)}>
             <CityCard
               heading={item.heading}
               image={item.companyImage}
               description={item.description}
             />
-            {/* </Link> */}
-          </div>
+            </Link>
+            </div>
         ))}
       </div>
     </div>

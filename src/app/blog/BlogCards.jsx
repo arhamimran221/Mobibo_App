@@ -2,7 +2,6 @@ import React from 'react'
 import Image from "next/image";
 
 const CityCard = (props) => {
-    console.log(props)
   return (
     <div className="rounded-lg bg-[#fff] overflow-hidden" >
       <Image src={props.image.src} alt="" width={300} height={300} className="lg:block hidden"/>
