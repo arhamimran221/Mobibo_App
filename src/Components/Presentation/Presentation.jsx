@@ -35,6 +35,8 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser';
 import { orderJson } from "@/app/api/utils/json.mjs"
 import dotenv from "dotenv";
+import Invoice from "../user/UserMain";
+import { Modal } from "antd";
 
 dotenv.config()
 
@@ -48,6 +50,73 @@ const Presentation = () => {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [driverNotes, setDriverNotes] = useState('');
+  const [truckSide ,setTruckSide] = useState("side");
+  const [viewType ,setViewType] = useState("2d");
+ const [isModalOpen, setIsModalOpen] = useState(false);
+ const [formData, setFormData] = useState({
+  location: "",
+});
+
+const [errors, setErrors] = useState({});
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+
+  setFormData({
+    ...formData,
+    [name]: value,
+  });
+      if (value.trim() === '') {
+    setErrors({
+      ...errors,
+      [name]: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`,
+    });
+  } else {
+    setErrors({
+      ...errors,
+      [name]: undefined,
+    });
+
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setErrors({
+          ...errors,
+          [name]: 'Invalid email format',
+        });
+      }
+    }
+  }
+};
+
+
+
+const handlelocationSubmit = () => {
+  const newErrors = {};
+
+  if (!formData.location.trim()) {
+    newErrors.location = "Please enter the location";
+  } 
+  if (Object.keys(newErrors).length === 0) {
+    console.log("No validation errors, calling onNextClick");
+    showModal();
+  } 
+   else {
+    console.log("Validation errors found, not calling onNextClick");
+    setErrors(newErrors);
+
+  }
+};
+
+ const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -162,9 +231,9 @@ const Presentation = () => {
     setSelectedRange(date);
   };
   const handleImageUpload = (event) => {
-    const files = Array.from(event.target.files);
-    const newImages = files.map(file => ({ url: URL.createObjectURL(file), name: file.name, size: `${file.size / 1000} KB` }));
-    setImageList([...imageList, ...newImages]);
+    const file = event.target.files[0]; 
+    setSelectedImage(file);
+    setImageList(file.name);
   };
 
   return (
@@ -403,7 +472,7 @@ const Presentation = () => {
               </div>
             </div>
             <div className="lg:w-[20%] w-[80%] m-auto rounded-lg my-[10px]">
-              <button className="bg-[#80ffab] w-[100%] py-2 rounded-lg cursor-pointer">
+              <button className="bg-[#80ffab] w-[100%] py-2 rounded-lg cursor-pointer" onClick={showModal}>
                 Order
               </button>
             </div>
@@ -432,35 +501,26 @@ const Presentation = () => {
               <div className="font-inter font-[500] lg:text-[44px] text-[25px] leading-[44px] lg:tracking-[-2.65px] tracking-[0px] lg:py-[150px] py-[40px] text-center">
                 Test your ideas
               </div>
-              <div className="flex lg:flex-row flex-col w-[100%] gap-[10px] pb-[100px] justify-between">
+              <div className="flex lg:flex-row flex-col w-[100%] gap-[40px] pb-[100px] justify-between">
                 <div className="lg:w-[30%] w-[90%] ml-4">
                   <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px]">
-                    <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">
-                      Side
-                    </button>
-                    <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">
-                      Back
-                    </button>
-                  </div>
-                  <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px] mt-[10px]">
-                    <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">
-                      2D
-                    </button>
-                    <button className="hover:bg-[#a57bff] hover:text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]">
-                      3D
-                    </button>
+                  <button className={truckSide === "side" ? "bg-[#a57bff] text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]" : "rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]"} onClick={() => setTruckSide("side")}>
+                  Side
+                </button>
+                <button className={truckSide === "back" ? "bg-[#a57bff] text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]" : "rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]"} onClick={() => setTruckSide("back")}>
+                  Back
+                </button>
+              </div>
+              <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px] mt-[10px]">
+                <button className={viewType === "2d" ?  "bg-[#a57bff] text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]" : "rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]"} onClick={() => setViewType("2d")}>
+                  2D
+                </button>
+                <button className={viewType === "3d" ?  "bg-[#a57bff] text-[#fff] rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]" : "rounded-full w-[50%] font-inter font-[600] text-[12px] leading-[16px] tracking-[0.05px] py-[6px]"} onClick={() => setViewType("3d")}>
+                  3D
+                </button>
                   </div>
                   <div className="bg-[#fff] rounded-lg p-4 mt-[10px]">
-                    {imageList.length === 0 ? ("Uploaded Images show here!") : (imageList.map((image, index) => (
-                      <div key={index} className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
-                        <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#9c9c9f] cursor-pointer" onClick={() => setSelectedImage(image.url)}>
-                          {image.name}
-                        </div>
-                        <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                          {image.size}
-                        </div>
-                      </div>
-                    )))}
+                  <p>{imageList ? imageList : <div>Uploaded image will show here</div>}</p> {/* Display selected image name */}
                   </div>
                   <div className="w-[100%] mt-[10px] flex justify-center">
                     <input
@@ -477,18 +537,35 @@ const Presentation = () => {
                   </div>
 
                   <div className="w-[100%] mt-[10px]">
-                    <button className="w-[100%] py-[10px] text-[#000] font-inter bg-[#80ffab] rounded-lg">
+                    <button className="w-[100%] py-[10px] text-[#000] font-inter bg-[#80ffab] rounded-lg" onClick={showModal}>
                       Order
                     </button>
                   </div>
                 </div>
-                <div className="lg:w-[70%] w-[100%] lg:block hidden">
-                  {selectedImage ? <Image src={selectedImage} alt="Selected" width={800} height={800} /> : <Image src={truckArch} width={800} height={800} />}
-                </div>
-                <div className="lg:w-[70%] w-[100%] lg:hidden block">
-                  {selectedImage ? <Image src={selectedImage} alt="Selected" width={500} height={500} /> : <Image src={responsiveTruck} width={500} height={500} />}
-
-                </div>
+                {truckSide === "side" ?
+            <div className="lg:w-[70%] w-[100%]  modal-bg-side p-4 lg:px-[55px] px-[25px] lg:h-[412px] h-[198px] ">
+              {selectedImage && ( // Display image preview if an image is selected
+                <img
+                  src={URL.createObjectURL(selectedImage)}
+                  alt="Selected"
+                  width={300}
+                  height={100}
+                  className="lg:h-[276px] h-[133px] lg:w-[491px] w-[240px] mt-[-10px] lg:mt-[2px] lg:ml-[6px]"
+                  style={{borderTopRightRadius:"13px"}}
+                />
+              )}
+            </div>:
+            <div className="lg:w-[70%] w-[100%]  modal-bg-back p-4  lg:pl-[284px] pl-[70px] h-[293px] lg:h-[400px]">
+            {selectedImage && ( 
+              <img
+                src={URL.createObjectURL(selectedImage)}
+                alt="Selected"
+                width={300}
+                height={100}
+                className="lg:h-[271px] h-[192px] lg:w-[294px] w-[206px] ml-[41px] lg:ml-[0px]"
+              />
+            )}
+          </div>}
               </div>
               <div className="flex w-[30%] justify-center gap-[30px] m-auto pb-[80px]">
                 <div >
@@ -533,15 +610,21 @@ const Presentation = () => {
             <div className="mt-[100px] mb-[50px] w-[50%] m-auto flex flex-col justify-center items-center">
               <input
                 type="text"
+                id="location"
+                name="location"
                 placeholder="Offer your location"
+                onChange={handleInputChange}
                 className="placeholder:text-[#e4e4e4] placeholder:text-[14px] text-[14px] font-inter placeholder:font-inter bg-[#fff] border-none px-4 py-1 focus:outline-none rounded-lg"
               />
+              {errors.location && (
+                  <p className="text-sm text-[red] mt-1">{errors.location}</p>
+                )}
               <div className="lg:w-[50%] w-[100%] font-inter font-[400] text-center text-[#3C3C43] my-[20px] text-[14px] leading-[16px] tracking-[-0.5px]">
                 and we will try to organize an advertising campaign for you
                 there
               </div>
               <div>
-                <button className="bg-[#FF80FD] rounded-lg text-[#fff] font-inter p-3 cursor-pointer hover:bg-[#e4e4e4] hover:text-[#FF80FD] hover:border-[1px] hover:border-[#FF80FD]">
+                <button className="bg-[#FF80FD] rounded-lg text-[#fff] font-inter p-3 cursor-pointer hover:bg-[#e4e4e4] hover:text-[#FF80FD] hover:border-[1px] hover:border-[#FF80FD]" onClick={handlelocationSubmit}>
                   Offer
                 </button>
               </div>
@@ -555,110 +638,65 @@ const Presentation = () => {
           <div className="lg:w-[33.33%] w-[100%]">
             <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
               1. &nbsp;Application for advertising placement
-              <div>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Specify the city</p>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Specify the dates</p>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Attach your advertising materials</p>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Provide personal information</p>
-                <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px] my-[10px] flex items-center gap-[5px]"><input type="checkbox" className="cursor-pointer" /> Can be Skipped for now</div>
-              </div>
             </div>
-            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[100px]">
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[90px]">
               <p>
                 2. &nbsp;Coordinating all points with our advertising strategist
               </p>{" "}
               <span className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">
                 Who will contact you.
               </span>
-              <div>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Creatives</p>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Route optimization</p>
-                <p className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C43] ml-[20px]">Measurement</p>
-              </div>
             </div>
             <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
               3. &nbsp;Payment
             </div>
           </div>
           <div className="lg:w-[33.33%] w-[100%]">
-            <form>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  onChange={e => setFirstName(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Last Name"
-                  onChange={e => setLastName(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Email
-                </label>
-                <input
-                  type="Email"
-                  placeholder="Enter Email"
-                  onChange={e => setEmail(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Phone
-                </label>
-                <input
-                  type="number"
-                  placeholder="Enter Phone Number"
-                  onChange={e => setPhone(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  placeholder="Your Company Name"
-                  onChange={e => setCompany(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <div className="flex flex-col gap-[10px] mb-[10px]">
-                <label className="font-inter text-[16px] leading-[20px] tracking-[-0.5px] font-[500]">
-                  Driver Notes
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Driver Notes"
-                  onChange={e => setDriverNotes(e.target.value)}
-                  className="bg-[#f8f8f8] text-[#8e8e91] rounded-lg placeholder:text-[#8e8e91] px-4 py-2 focus:outline-none border-[1px] border-[#e5e5ea]"
-                />
-              </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                className="w-[100%] py-[10px] text-[#fff] font-inter bg-[#ff80fd] rounded-lg cursor-pointer"
-              >
-                Submit
-              </button>
-            </form>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Specify the city</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Specify the dates</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Attach your advertising materials</div>
+           <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">сan be skipped and sent after payment</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Provide personal information</div>
+           <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">
+            <p>First Name</p>
+            <p>Last name</p>
+            <p>Email</p>
+            <p>Phone</p>
+            <p>Company name</p>
+            <p>Notes to LED truck driver</p>
+           </div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Creatives</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Route optimization</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Measurement</div>
+           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#3C3C4399]">Etc</div>
           </div>
         </div>
         <div className="m-auto w-[100%] max-w-[1280px] p-4 flex justify-center"><button className="bg-[#80FFAB] px-4 py-2 cursor-pointer rounded-lg font-inter font-[500] hover:border-[1px] hover:bg-[#fff] hover:border-[#80FFAB] hover:text-[#80FFAB]">Run Ads</button></div>
+        <Modal
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              width="100%"
+              footer={null}
+              style={{
+                maxWidth: "1280px",
+                backgroundColor: "#e4e4e4",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                paddingBottom: "0px",
+                margin: "0px",
+                "@media (min-width: 600px)": {
+                  width: "80%", // or whatever width you want above 600px viewport width
+                },
+                "@media (min-width: 900px)": {
+                  width: "50%", // or whatever width you want above 900px viewport width
+                },
+              }}
+            > 
+              <Invoice />
+            </Modal>
       </div>
     </>
   );

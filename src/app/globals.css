@@ -362,9 +362,23 @@
 .swiper-pagination-bullet{
   background:  #f9ff8a !important;
 }
+.modal-bg-side{
+  background-image: url(../Assests/truck-archi.png);
+  background-size: cover;
+  background-repeat: no-repeat
+}
+.modal-bg-back{
+  background-image: url(../Assests/back-truck.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
+}
+.modal-bg-side{
+  background-size: contain;
 }
 .adCampain-wrap{
   flex-direction: column;
