@@ -238,7 +238,7 @@ const handlelocationSubmit = () => {
 
   return (
     <>
-      <div className="">
+      <div className="overflow-hidden">
         <div style={{ position: "relative" }}>
           <video
             src="/video.mp4"
