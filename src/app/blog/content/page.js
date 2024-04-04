@@ -16,10 +16,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRouter } from 'next/navigation'
 
 
-const page =()=> {
-
+const page =({searchParams})=> {
+  const router = useRouter();
+  // const { heading, image, description } = router.query;
+  // const decodedHeading = decodeURIComponent(heading);
+  // const decodedImage = decodeURIComponent(image);
+  // const decodedDescription = decodeURIComponent(description);
+ console.log("searchParams",searchParams)
       return (
         <div className="max-w-[1280px] w-[100%] m-auto">
          <div className='text-[#FF80FD] font-inter cursor-pointer px-4 flex gap-[10px] items-center'>

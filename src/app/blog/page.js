@@ -3,8 +3,8 @@
 import React from "react";
 import CityCard from "./BlogCards";
 import Link from "next/link";
-import { companyData } from "./companyData.jsx";
 import { useRouter } from 'next/navigation';
+import { companyData } from "./CompanyData";
 
 const page = () => {
   const router = useRouter();
