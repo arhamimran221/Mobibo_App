@@ -84,6 +84,7 @@
 .routes-right{
   background-image: url("../Assests/AdsSettings-2.png");
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .navlinks{
   list-style: none;
