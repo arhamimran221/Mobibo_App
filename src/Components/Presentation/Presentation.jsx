@@ -537,7 +537,7 @@ const convertBytesToMB = (bytes) => {
               <div className="font-inter font-[500] lg:text-[44px] text-[25px] leading-[44px] lg:tracking-[-2.65px] tracking-[0px] lg:py-[150px] py-[40px] text-center">
                 Test your ideas
               </div>
-              <div className="flex lg:flex-row flex-col w-[100%] gap-[40px] pb-[100px] justify-between">
+             {isModalOpen ? "" : <div className="flex lg:flex-row flex-col w-[100%] gap-[40px] pb-[100px] justify-between">
                 <div className="lg:w-[30%] w-[90%] ml-4">
                   <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px]">
                     <button
@@ -697,7 +697,7 @@ const convertBytesToMB = (bytes) => {
                    Under Process!
                   </div>
                 )}
-              </div>
+              </div>}
               <div className="flex w-[30%] justify-center gap-[30px] m-auto pb-[80px]">
                 <div>
                   <p className="font-inter font-[400] text-[14px] leading-[16px] tracking-[-0.5px] text-[#7f7f83]">

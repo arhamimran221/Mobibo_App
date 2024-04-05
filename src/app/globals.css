@@ -368,7 +368,18 @@
   background-size: cover;
   background-repeat: no-repeat
 }
+.truckShow-bg-side{
+  background-image: url(../Assests/truck-archi.png);
+  background-size: cover;
+  background-repeat: no-repeat
+}
 .modal-bg-back{
+  background-image: url(../Assests/back-truck.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.truckShow-bg-back{
   background-image: url(../Assests/back-truck.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -377,6 +388,9 @@
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
+}
+.truckShow-bg-side{
+  background-size: contain;
 }
 .modal-bg-side{
   background-size: contain;

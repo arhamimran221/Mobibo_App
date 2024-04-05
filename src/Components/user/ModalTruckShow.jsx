@@ -32,7 +32,7 @@ const handleFileChangeModalBack = (event) => {
     <div>
               <div className=" w-[100%] max-w-[1280px] m-auto">
         <div className="flex lg:flex-row flex-col w-[100%] gap-[40px] pb-[100px] justify-between">
-                <div className="lg:w-[30%] w-[90%] ml-4">
+                <div className="lg:w-[25%] w-[90%] ml-4">
                   <div className="bg-[#f9ff8a] rounded-full flex w-[100%] p-[2px]">
                     <button
                       className={
@@ -127,7 +127,7 @@ const handleFileChangeModalBack = (event) => {
                     {truckModalSide ==='side'?
                     <input
                       type="file"
-                      id="uploadfile"
+                      id="uploadfileModal"
                       accept=".jpg, .jpeg, .png"
                       onChange={handleFileChangeModalSide}
                       multiple
@@ -136,14 +136,14 @@ const handleFileChangeModalBack = (event) => {
                   :
                   <input
                       type="file"
-                      id="uploadfile"
+                      id="uploadfileModal"
                       accept=".jpg, .jpeg, .png"
                       onChange={handleFileChangeModalBack}
                       multiple
                       style={{ display: "none" }} // Hide the default file input
                     />}
                     <label
-                      htmlFor="uploadfile"
+                      htmlFor="uploadfileModal"
                       className="w-[100%] py-[10px] px-4 text-[#fff] text-center font-inter bg-[#ff80fd] rounded-lg cursor-pointer"
                     >
                       Upload
@@ -153,27 +153,27 @@ const handleFileChangeModalBack = (event) => {
                   </div>
                 {viewModalType === "2d" ? (
                   truckModalSide === "side" ? (
-                    <div className="lg:w-[70%] w-[100%]  modal-bg-side p-4 lg:px-[55px] px-[25px] lg:h-[412px] h-[198px] ">
+                    <div className="lg:w-[83%] w-[100%]  truckShow-bg-side p-4 lg:px-[55px] px-[25px] lg:h-[412px] h-[198px] ">
                       {selectedImageModalSide && ( // Display image preview if an image is selected
                         <img
                           src={URL.createObjectURL(selectedImageModalSide)}
                           alt="Selected"
                           width={300}
                           height={100}
-                          className="lg:h-[276px] h-[124px] lg:w-[491px] w-[222px] mt-[-10px] lg:mt-[2px] lg:ml-[6px]"
+                          className="lg:h-[276px] h-[99px] lg:w-[491px] w-[169px] mt-[-10px] lg:mt-[2px] lg:ml-[6px]"
                           style={{ borderTopRightRadius: "13px" }}
                         />
                       )}
                     </div>
                   ) : (
-                    <div className="lg:w-[70%] w-[100%]  modal-bg-back p-4  lg:pl-[284px] pl-[70px] h-[293px] lg:h-[400px]">
+                    <div className="lg:w-[83%] w-[100%]  truckShow-bg-back p-4  lg:pl-[299px] pl-[70px] h-[293px] lg:h-[400px]">
                       {selectedImageModalBack && (
                         <img
                           src={URL.createObjectURL(selectedImageModalBack)}
                           alt="Selected"
                           width={300}
                           height={100}
-                          className="lg:h-[271px] h-[192px] lg:w-[294px] w-[206px] ml-[24px] lg:ml-[0px]"
+                          className="lg:h-[271px] h-[164px] lg:w-[294px] w-[172px] lg:ml-[0px] lg:mt-[0px] mt-[20px]"
                         />
                       )}
                     </div>
