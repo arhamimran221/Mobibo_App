@@ -287,7 +287,9 @@
   flex-direction: column;
   align-items: center; /* Align month name to the left */
 }
-
+.ant-modal-content{
+  width: 100vw;
+}
 .react-calendar__navigation {
   display: flex;
   justify-content: flex-end; /* Align navigation arrows to the right */
@@ -365,7 +367,7 @@
 }
 .modal-bg-side{
   background-image: url(../Assests/truck-archi.png);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat
 }
 .truckShow-bg-side{
@@ -385,6 +387,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
 @media screen and (max-width:580px) {
 .hero-banner{
   height: 200px;
