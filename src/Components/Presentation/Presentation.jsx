@@ -877,6 +877,7 @@ const Presentation = () => {
                 placeholder="Offer your location"
                 width={300}
                 onChange={handleInputChange}
+                bordered={false}
                 className="placeholder:text-[#e4e4e4] placeholder:text-[14px] text-[14px] font-inter placeholder:font-inter bg-[#fff] border-none px-4 py-1 focus:outline-none rounded-lg"
               >
                 {locations.map((location, index) => (
