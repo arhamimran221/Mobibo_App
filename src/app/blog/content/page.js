@@ -31,14 +31,13 @@ import { useRouter } from 'next/navigation'
 
 const page =({searchParams})=> {
   const router = useRouter();
- console.log("searchParams",searchParams)
   
  const heading = searchParams.heading;
  const Description = searchParams.description;
 
       return (
         <div className="max-w-[1280px] w-[100%] m-auto">
-         <div className='text-[#FF80FD] font-inter cursor-pointer px-4 flex gap-[10px] items-center'>
+         <div className='text-[#FF80FD] font-inter cursor-pointer px-4 flex gap-[10px] items-center' onClick={() => router.back()}>
           <LeftOutlined/> Blog
          </div>
          <div className="my-[40px] ">
