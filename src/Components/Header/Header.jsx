@@ -64,194 +64,188 @@ const Header = () => {
       setIsOpen(false);
     }
   };
- 
-  const activeStyles = "rounded-full px-4 py-2 bg-[#A57BFF] font-inter text-[#fff] font-[600] text-[12px] cursor-pointer";
-  const nonActiveStyles = " px-4 py-2 font-inter text-[#3C3C4399] font-[400] text-[12px] cursor-pointer";
+
+  const activeStyles =
+    "rounded-full px-4 py-2 bg-[#A57BFF] font-inter text-[#fff] font-[600] text-[12px] cursor-pointer";
+  const nonActiveStyles =
+    " px-4 py-2 font-inter text-[#3C3C4399] font-[400] text-[12px] cursor-pointer";
   return (
     <div>
       <div className="flex justify-between items-center navbar">
         <div className="flex justify-between items-center gap-[20px]">
-          <div className="">
+          <Link className="" href="/">
             <Image src={mobiboLogo} alt="mobibo-log" />
-          </div>
+          </Link>
 
           {isOpen && (
             <div className="mobile-menu">
               <div className="tab-buttons-mobile">
-              <Link
-              href="/"
-              className={
-                currentRoute === "/"
-                  ? activeStyles
-                  :nonActiveStyles
-              }
-            >
+                <Link
+                  href="/"
+                  className={
+                    currentRoute === "/" ? activeStyles : nonActiveStyles
+                  }
+                >
                   Presentation
                 </Link>
 
                 <div className="border-tabs-mobile"></div>
                 <Link
-              href="/city"
-              className={
-                currentRoute === "/city"
-                  ? activeStyles
-                  :nonActiveStyles
-              }
-            >
+                  href="/city"
+                  className={
+                    currentRoute === "/city" ? activeStyles : nonActiveStyles
+                  }
+                >
                   City
                 </Link>
                 <div className="border-tabs-mobile"></div>
                 <Link
-              href="/blog"
-              className={
-                currentRoute === "/blog"
-                  ? activeStyles
-                  : nonActiveStyles
-              }
-            >
+                  href="/blog"
+                  className={
+                    currentRoute === "/blog" ? activeStyles : nonActiveStyles
+                  }
+                >
                   Blogs
                 </Link>
               </div>
-              {currentRoute === "/" ?
-          <div className="navlinks-mobile">
-            <li
-              className=""
-              value="Feature"
-              onClick={() => handleScrollResp("Feature")}
-            >
-              Features
-            </li>
-            <li
-              className=""
-              value="Experience"
-              onClick={() => handleScrollResp("Experience")}
-            >
-              Experience
-            </li>
-            <li
-              className=""
-              value="Pricing"
-              onClick={() => handleScrollResp("Pricing")}
-            >
-              Pricing
-            </li>
-            <li
-              className=""
-              value="Trucks"
-              onClick={() => handleScrollResp("Trucks")}
-            >
-              Trucks
-            </li>
-            <li
-              className=""
-              value="AdsSettings"
-              onClick={() => handleScrollResp("AdsSettings")}
-            >
-              Ads Settings
-            </li>
-            <li
-              className=""
-              value="Coverage"
-              onClick={() => handleScrollResp("Coverage")}
-            >
-              Coverage
-            </li>
-            <li
-              className=""
-              value="OrderProcess"
-              onClick={() => handleScrollResp("OrderProcess")}
-            >
-              Order Process
-            </li>
-          </div> : '' }
+              {currentRoute === "/" ? (
+                <div className="navlinks-mobile">
+                  <li
+                    className=""
+                    value="Feature"
+                    onClick={() => handleScrollResp("Feature")}
+                  >
+                    Features
+                  </li>
+                  <li
+                    className=""
+                    value="Experience"
+                    onClick={() => handleScrollResp("Experience")}
+                  >
+                    Experience
+                  </li>
+                  <li
+                    className=""
+                    value="Pricing"
+                    onClick={() => handleScrollResp("Pricing")}
+                  >
+                    Pricing
+                  </li>
+                  <li
+                    className=""
+                    value="Trucks"
+                    onClick={() => handleScrollResp("Trucks")}
+                  >
+                    Trucks
+                  </li>
+                  <li
+                    className=""
+                    value="AdsSettings"
+                    onClick={() => handleScrollResp("AdsSettings")}
+                  >
+                    Ads Settings
+                  </li>
+                  <li
+                    className=""
+                    value="Coverage"
+                    onClick={() => handleScrollResp("Coverage")}
+                  >
+                    Coverage
+                  </li>
+                  <li
+                    className=""
+                    value="OrderProcess"
+                    onClick={() => handleScrollResp("OrderProcess")}
+                  >
+                    Order Process
+                  </li>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           )}
           <div className="tab-buttons">
-          <Link
+            <Link
               href="/"
-              className={
-                currentRoute === "/"
-                ? activeStyles
-                :nonActiveStyles
-              }
+              className={currentRoute === "/" ? activeStyles : nonActiveStyles}
             >
-                  Presentation
-                </Link>
+              Presentation
+            </Link>
             <div className="border-tabs"></div>
             <Link
               href="/city"
               className={
-                currentRoute === "/city"
-                  ? activeStyles
-                  :nonActiveStyles
+                currentRoute === "/city" ? activeStyles : nonActiveStyles
               }
             >
-                  City
-                </Link>
+              City
+            </Link>
             <div className="border-tabs"></div>
             <Link
               href="/blog"
               className={
-                currentRoute === "/blog"
-                  ? activeStyles
-                  :nonActiveStyles
+                currentRoute === "/blog" ? activeStyles : nonActiveStyles
               }
             >
-                  Blogs
-                </Link>
+              Blogs
+            </Link>
           </div>
-          {currentRoute === "/" ?
-          <div className="navlinks">
-            <li
-              className=""
-              value="Feature"
-              onClick={() => handleScroll("Feature")}
-            >
-              Features
-            </li>
-            <li
-              className=""
-              value="Experience"
-              onClick={() => handleScroll("Experience")}
-            >
-              Experience
-            </li>
-            <li
-              className=""
-              value="Pricing"
-              onClick={() => handleScroll("Pricing")}
-            >
-              Pricing
-            </li>
-            <li
-              className=""
-              value="Trucks"
-              onClick={() => handleScroll("Trucks")}
-            >
-              Trucks
-            </li>
-            <li
-              className=""
-              value="AdsSettings"
-              onClick={() => handleScroll("AdsSettings")}
-            >
-              Ads Settings
-            </li>
-            <li
-              className=""
-              value="Coverage"
-              onClick={() => handleScroll("Coverage")}
-            >
-              Coverage
-            </li>
-            <li
-              className=""
-              value="OrderProcess"
-              onClick={() => handleScroll("OrderProcess")}
-            >
-              Order Process
-            </li>
-          </div> : '' }
+          {currentRoute === "/" ? (
+            <div className="navlinks">
+              <li
+                className=""
+                value="Feature"
+                onClick={() => handleScroll("Feature")}
+              >
+                Features
+              </li>
+              <li
+                className=""
+                value="Experience"
+                onClick={() => handleScroll("Experience")}
+              >
+                Experience
+              </li>
+              <li
+                className=""
+                value="Pricing"
+                onClick={() => handleScroll("Pricing")}
+              >
+                Pricing
+              </li>
+              <li
+                className=""
+                value="Trucks"
+                onClick={() => handleScroll("Trucks")}
+              >
+                Trucks
+              </li>
+              <li
+                className=""
+                value="AdsSettings"
+                onClick={() => handleScroll("AdsSettings")}
+              >
+                Ads Settings
+              </li>
+              <li
+                className=""
+                value="Coverage"
+                onClick={() => handleScroll("Coverage")}
+              >
+                Coverage
+              </li>
+              <li
+                className=""
+                value="OrderProcess"
+                onClick={() => handleScroll("OrderProcess")}
+              >
+                Order Process
+              </li>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="flex gap-[20px]">
           <button className=" order-button" onClick={showModal}>

@@ -54,9 +54,9 @@ const page = () => {
   const [truckSide, setTruckSide] = useState("side");
   const [viewType, setViewType] = useState("2d");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [totalCost , setTotalCost] = useState(null)
-  const [totalDays , setTotalDays] = useState(null)
-  const [totalSaving, setTotalSaving] = useState(null)
+  const [totalCost, setTotalCost] = useState(null);
+  const [totalDays, setTotalDays] = useState(null);
+  const [totalSaving, setTotalSaving] = useState(null);
   const [formData, setFormData] = useState({
     location: "",
   });
@@ -244,14 +244,14 @@ const page = () => {
   ];
   const handleDateChange = (date) => {
     setSelectedRange(date);
-  
+
     if (date.length === 2) {
       const startDate = new Date(date[0]);
       const endDate = new Date(date[1]);
       const diffInTime = endDate.getTime() - startDate.getTime();
       const diffInDays = Math.ceil(diffInTime / (1000 * 60 * 60 * 24));
       const selectedDays = diffInDays;
-      setTotalDays(selectedDays)
+      setTotalDays(selectedDays);
       setTotalCost(selectedDays * 1750);
       setTotalSaving(selectedDays * 2400);
     }
@@ -309,7 +309,9 @@ const page = () => {
                   Price for {totalDays ? totalDays : "0"} days
                 </div>
                 <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px]">
-                  {totalCost? ("$" + new Intl.NumberFormat('en-US').format(totalCost)) : "$0"}
+                  {totalCost
+                    ? "$" + new Intl.NumberFormat("en-US").format(totalCost)
+                    : "$0"}
                 </div>
               </div>
               <div className="flex justify-between  px-3 py-2">
@@ -317,7 +319,9 @@ const page = () => {
                   Savings
                 </div>
                 <div className="font-inter font-[500] text-[14px] leading-[20px] leading-[-0.5px] text-[#3C3C43]">
-                {totalSaving? ("$" + new Intl.NumberFormat('en-US').format(totalSaving)) : "$0"}
+                  {totalSaving
+                    ? "$" + new Intl.NumberFormat("en-US").format(totalSaving)
+                    : "$0"}
                 </div>
               </div>
             </div>
@@ -455,7 +459,6 @@ const page = () => {
           <div className="lg:w-[33.33%] w-[100%]">
             <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
               1. &nbsp;Application for advertising placement
-
             </div>
             <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] my-[100px]">
               <p>
@@ -470,23 +473,41 @@ const page = () => {
             </div>
           </div>
           <div className="lg:w-[33.33%] w-[100%]">
-          <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Specify the city</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Specify the dates</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Attach your advertising materials</div>
-           <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">сan be skipped and sent after payment</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Provide personal information</div>
-           <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">
-            <p>First Name</p>
-            <p>Last name</p>
-            <p>Email</p>
-            <p>Phone</p>
-            <p>Company name</p>
-            <p>Notes to LED truck driver</p>
-           </div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Creatives</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Route optimization</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">Measurement</div>
-           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#3C3C4399]">Etc</div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Specify the city
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Specify the dates
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Attach your advertising materials
+            </div>
+            <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">
+              сan be skipped and sent after payment
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Provide personal information
+            </div>
+            <div className="font-inter font-[400] text-[12px] leading-[16px] tracking-[0.05px] text-[#3C3C4399] text-right">
+              <p>First Name</p>
+              <p>Last name</p>
+              <p>Email</p>
+              <p>Phone</p>
+              <p>Company name</p>
+              <p>Notes to LED truck driver</p>
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Creatives
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Route optimization
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px]">
+              Measurement
+            </div>
+            <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#3C3C4399]">
+              Etc
+            </div>
           </div>
         </div>
         <div className="m-auto w-[100%] max-w-[1280px] p-4 flex justify-center">

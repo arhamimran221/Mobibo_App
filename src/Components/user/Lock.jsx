@@ -14,47 +14,43 @@ import Image from "next/image";
 import { Checkbox, Divider, Select } from "antd";
 
 const Lock = ({ onNextClick, onPreviousClick }) => {
-  const [truckModalSide ,setTruckModalSide] = useState("side");
-  const [viewModalType ,setViewModalType] = useState("2d");
+  const [truckModalSide, setTruckModalSide] = useState("side");
+  const [viewModalType, setViewModalType] = useState("2d");
   const [selectedImageModalSide, setSelectedImageModalSide] = useState(null);
   const [selectedImageModalBack, setSelectedImageModalBack] = useState(null);
-  const [fileSpecsModalSide , setFileSpecsModalSide] = useState();
-  const [fileSpecsModalBack , setFileSpecsModalBack] = useState();
-  const [fileTypeModalSide , setFileTypeModalSide] = useState();
-  const [fileTypeModalBack , setFileTypeModalBack] = useState();
+  const [fileSpecsModalSide, setFileSpecsModalSide] = useState();
+  const [fileSpecsModalBack, setFileSpecsModalBack] = useState();
+  const [fileTypeModalSide, setFileTypeModalSide] = useState();
+  const [fileTypeModalBack, setFileTypeModalBack] = useState();
 
   const handleFileChangeModalSide = (event) => {
-    const file = event.target.files[0]; 
+    const file = event.target.files[0];
     setSelectedImageModalSide(file);
     setFileSpecsModalSide(convertBytesToMB(file.size));
-    setFileTypeModalSide(file.type)
+    setFileTypeModalSide(file.type);
   };
 
-const convertBytesToMB = (bytes) => {
+  const convertBytesToMB = (bytes) => {
     return (bytes / (1024 * 1024)).toFixed(2); // Convert bytes to megabytes with 2 decimal places
-};
+  };
 
   const handleFileChangeModalBack = (event) => {
-      const file = event.target.files[0];
-      setSelectedImageModalBack(file);
-      setFileSpecsModalBack(convertBytesToMB(file.size));
-      setFileTypeModalBack(file.type)
-
-    };
-  
+    const file = event.target.files[0];
+    setSelectedImageModalBack(file);
+    setFileSpecsModalBack(convertBytesToMB(file.size));
+    setFileTypeModalBack(file.type);
+  };
 
   const nextClick = () => {
     onNextClick();
   };
 
-
-
   return (
     <>
       <div className="text-center">Upload your creatives</div>
       <div className="bg-[#e4e4e4] lg:my-[40px] my-[20px]">
-        <ModalTruckShow/>
-        </div>
+        <ModalTruckShow />
+      </div>
       <div className="flex justify-center p-4  w-full text-center next-btn  mt-5 m-auto">
         <div>
           <p className="lg:w-[53%] w-[80%] text-center m-auto font-inter tex-[24px]">
@@ -62,7 +58,10 @@ const convertBytesToMB = (bytes) => {
             send us the creatives now - upload them for each side of the truck.
           </p>
           <div className=" ">
-            <button className="rounded-md bg-[#f7f7f7] px-3 py-2 text-sm font-semibold text-[#000] shadow-sm  ml-auto mt-[10px]" onClick={nextClick}>
+            <button
+              className="rounded-md bg-[#f7f7f7] px-3 py-2 text-sm font-semibold text-[#000] shadow-sm  ml-auto mt-[10px]"
+              onClick={nextClick}
+            >
               Skip <ArrowLeftOutlined className="pt-[3px] pl-2" />
             </button>
             <button

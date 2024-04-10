@@ -3,11 +3,8 @@ import React from "react";
 const AdCampain = () => {
   return (
     <div className="adCampain-container">
-      <div className="adCampain-wrap">
-        <h4 className="adCampain-heading">
-          {" "}
-          Ad campaign settings
-        </h4>
+      <div className="adCampain-wrap px-4">
+        <h4 className="adCampain-heading"> Ad campaign settings</h4>
         <div className="adCampain-sec">
           <h3 className="text-[20px] font-[400] font-inter">Before</h3>
           <p className="text-[14px] font-[400] font-inter">

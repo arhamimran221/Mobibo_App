@@ -73,7 +73,7 @@ const Presentation = () => {
 
   const handleInputChange = (value, option) => {
     const name = option.key;
-     console.log(option)
+    console.log(option);
     setFormData({
       ...formData,
       [name]: value,
@@ -88,7 +88,7 @@ const Presentation = () => {
         ...errors,
         [name]: undefined,
       });
-  
+
       if (name === "email") {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
@@ -103,7 +103,7 @@ const Presentation = () => {
 
   const handlelocationSubmit = () => {
     const newErrors = {};
-  
+
     if (!formData.location.trim()) {
       newErrors.location = "Please enter the location";
     }
@@ -386,7 +386,7 @@ const Presentation = () => {
                   fill-opacity="0.2"
                 />
               </svg>
-              <p>Vedio</p>
+              <p>Video</p>
             </div>
             <div className="flex flex-col justify-center items-center">
               <svg
@@ -457,14 +457,14 @@ const Presentation = () => {
               </ul>
             </div>
           </div>
-          <div className="lg:mt-[36%] mt-[80%] text-[#fff]">
+          <div className="lg:mt-[37%] mt-[80%] text-[#fff]">
             <div>
               <Image src={gameIcon} alt="game icon" />
             </div>
-            <div className="mt-[30px] font-inter leading-[20px] tracking-[0px] lg:text-[16px] text-[14px] text-[#8d939d] ">
+            <div className="mt-[20px] font-inter leading-[20px] tracking-[0px] lg:text-[16px] text-[14px] text-[#8d939d] ">
               In the picture
             </div>
-            <div className="mt-[10px] lg:w-[20%] w-[70%] font-inter leading-[20px] lg:text-[16px] text-[14px]">
+            <div className="mt-[5px] lg:w-[20%] w-[70%] font-inter leading-[20px] lg:text-[16px] text-[14px]">
               Customers have connected a game console and play directly on our
               LED truck
             </div>
@@ -594,7 +594,7 @@ const Presentation = () => {
                 $1250
               </div>
               <div className="font-inter font-[400] text-[14px] leading-[20px] tracking-[-0.5px]">
-                per day
+                Per Day
               </div>
             </div>
           </div>
@@ -674,7 +674,7 @@ const Presentation = () => {
                             Available for
                           </div>
                           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                            Vedio/Image
+                            video/Image
                           </div>
                         </div>
                         <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
@@ -717,7 +717,7 @@ const Presentation = () => {
                             Available for
                           </div>
                           <div className="font-inter font-[400] text-[16px] leading-[20px] tracking-[-0.5px] text-[#000]">
-                            Vedio/Image
+                            video/Image
                           </div>
                         </div>
                         <div className="flex justify-between border-b-[1px] border-b-[#9c9c9f] py-[10px]">
